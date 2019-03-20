@@ -1,0 +1,24 @@
+{
+  "name": "puginvscode",
+  "version": "1.0.0",
+  "description": "Setup and connection of pug for work in vs code",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madeas/puginvscode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madeas/puginvscode/issues"
+  },
+  "homepage": "https://github.com/madeas/puginvscode#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0"
+  }
+}
