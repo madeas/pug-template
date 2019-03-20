@@ -1,3 +1,5 @@
+$light: #e4e4e4;
+
 *,
 ::after,
 ::before {
@@ -7,7 +9,6 @@
 html {
     font-family: sans-serif;
     line-height: 1.15;
-    font-size: 62.5%;
 
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
@@ -20,6 +21,49 @@ html {
 
 body {
     margin: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+    color: darken($light, 50%);
+}
+
+header,
+main,
+footer {
     font-size: 1rem;
+}
+
+header {
+    position: sticky;
+    top:0;
+    display: flex;
+    width: 100%;
+    min-height: 6vh;
+    justify-content: center;
+    align-items: center;
+    background-color: $light;
+}
+
+section {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    &:nth-child(even) {
+        background-color: darken($light, 5%);
+    }
+}
+
+footer {
+    display: flex;
+    min-height: 7vh;
+    justify-content: center;
+    align-items: center;
 }
