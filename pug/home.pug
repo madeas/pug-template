@@ -12,7 +12,10 @@ html(lang="en")
             h1 #{title}
 
         main
-            include includes/content
+            .content
+                each val in [{id:"uno", cont:"About Us"},{id:"dos", cont:"Pricelist"},{id:"tres", cont:"Testimonials"},{id:"cuatro", cont:"Contact Us"}]
+                    section(id=val.id)
+                        h2= val.cont
 
         footer
             p &copy; 2019 built by 
