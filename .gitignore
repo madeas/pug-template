@@ -1,2 +1,6 @@
+build/css
+/css
+/js
 node_modules
+*.html
 package-lock.json
