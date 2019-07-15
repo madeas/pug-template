@@ -1,0 +1,21 @@
+extends ../template
+
+block vars
+    - pageTitle = 'Home — '
+    - pageDesc = 'Description page'
+    - leadText = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur adipisci, similique quo reiciendis consequatur facilis quam tempora architecto nihil inventore eos maxime soluta sapiente non culpa repellat aliquid animi quibusdam.`
+
+block prepend title
+    | #{ pageTitle }
+
+    - headName = 'Hello, World!'
+
+block content
+    .container
+        .row
+            .col.md-4
+                include ../includes/sidebar
+            .col.md-8
+                .content
+                    h2 Hello, World!
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eveniet accusantium deserunt. Tempora beatae mollitia quo pariatur architecto, praesentium illo, deserunt tenetur repellendus veniam, id voluptate aliquam quibusdam distinctio temporibus.

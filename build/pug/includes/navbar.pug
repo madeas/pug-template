@@ -1,0 +1,9 @@
+nav#navbar
+    .sitename
+        a(href="#")
+            img.logo(src="", alt="")
+            | #{ siteName }
+    ul
+        each val in [{id:"about", name:"About Us"}, {id:"services", name:"Services"}, {id:"testimonials", name:"Testimonials"}, {id:"contact", name:"Contact"}]
+            li
+                a(href='/' + val.id title=val.name) #{ val.name }

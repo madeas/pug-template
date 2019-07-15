@@ -1,0 +1,39 @@
+include includes/vars
+
+doctype html
+html(lang=pageLang)
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title
+            block title
+                | #{ siteName }
+        meta(name="title" content=pageTitle + siteName)
+        meta(name="description" content=pageDesc)
+        link(rel="shortcut icon", href="scr/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway|Lato:400,700,900&display=swap")
+        
+        link(rel="stylesheet", href="css/style.min.css")
+
+        link(rel="dns-prefetch" href="https://fonts.googleapis.com")
+        link(rel="dns-prefetch" href="https://cdnjs.cloudflare.com")
+    body
+        header#header
+            include includes/navbar
+
+        main#main
+            block heading
+                #masthead
+                    .wrapper
+                        h1#pageTitle {{ headingName }}
+                        p.lead #{ leadText }
+
+                block content
+
+        footer#footer
+            p &copy; 2019 built by 
+                a(href="https://madeas.ru/kak-podruzhit-pug-i-vs-code/" target="_blank") Andrej Sharapov
+            
+            script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js")
+            script(src="js/scripts.min.js")

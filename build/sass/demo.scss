@@ -1,0 +1,83 @@
+
+@import "_vars";
+
+body {
+    @include d-flex($fd: column, $jc: flex-start, $ai: inherit);
+}
+
+#header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: .5rem 1rem;
+    background-color: $light;
+}
+
+#navbar {
+    display: flex;
+    padding: .5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+        color: $dark;
+    }
+
+    ul {
+        display: inherit;
+        li {
+            a {
+                padding: .5rem;
+
+                @include mq(md) {
+                    padding: .5rem 1rem;
+                }
+            }
+        }
+    }
+}
+
+#main {
+    @include d-flex(column, flex-start, flex-start);
+
+    #masthead {
+        --mastsize: 4em;
+        padding-top: var(--mastsize);
+        padding-bottom: var(--mastsize);
+        @include d-flex;
+        min-height: 30em;
+        color: $white;
+        background-color: $col1;
+        background-image: linear-gradient(
+            135deg,
+            $col1,
+            $col2
+        );
+
+        @include mq(sm) {
+            --mastsize: 8em;
+        }
+
+        .wrapper {
+            max-width: 80%;
+            text-align: center;
+        }
+    }
+
+    .content {
+        padding: 2em;
+    }
+}
+
+#footer {
+    position: sticky;
+    bottom: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    @include d-flex;
+    background-color: $light;
+
+    p {
+        margin-bottom: 0;
+    }
+}

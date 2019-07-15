@@ -1,0 +1,99 @@
+//- global palette
+
+$black: #1a1b1f;
+$dark: #444857;
+$gray: #868ca0;
+$light: #f4f4f4;
+$white: #ffffff;
+
+//- colors
+
+$col1: #49ddd8;
+$col2: #1da1f2;
+$col3: #4954de;
+$col4: #1d185a;
+$col5: #da1b60;
+$col6: #fd6470;
+
+$aside: 60px;
+$wbar: 200px;
+
+//? 20em = 320px
+$xs: 30em; // (min-width: 480px)
+$sm: 36em; // (min-width: 576px)
+$md: 48em; // (min-width: 768px)
+$lg: 62em; // (min-width: 992px)
+//? $xl: 64em; // (min-width: 1024px)
+$xl: 75em; // (min-width: 1200px)
+
+@mixin mq($size) {
+    @if $size==sm {
+        @media (min-width: $sm) {
+            @content;
+        }
+    }
+
+    @else if $size==md {
+        @media (min-width: $md) {
+            @content;
+        }
+    }
+
+    @else if $size==lg {
+        @media (min-width: $lg) {
+            @content;
+        }
+    }
+}
+
+// includes
+// @include mq(sm) {
+//     @content;
+// }
+
+@mixin d-flex($fd: column, $jc: center, $ai: center) {
+    display: flex;
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+// includes
+// @include flex(column, center, center) {
+//     @content;
+// }
+
+$breakpoints: (
+    sm: (min-width: $sm),
+    md: (min-width: $md),
+    lg: (min-width: $lg),
+);
+
+$sizes: (
+    h1: (sm: 2.5, md: 2.75, lg: 3),
+    h2: (sm: 2.25, md: 2.5, lg: 2.75),
+    h3: (sm: 2, md: 2.25, lg: 2.5),
+    h4: (sm: 1.75, md: 2, lg: 2.25),
+    h5: (sm: 1.5, md: 1.75, lg: 2),
+    h6: (sm: 1.25, md: 1.5, lg: 1.75),
+);
+
+@each $query-id, $query in $breakpoints {
+    $query-property: nth(map-keys($query), 1);
+    $query-value: nth(map-values($query), 1);
+
+    @media (#{$query-property}: #{$query-value}) {
+
+        @each $tag, $sizes-list in $sizes {
+            #{$tag} {
+                $size: map-get($sizes-list, $query-id);
+
+                @if (unitless($size)) {
+                    $size: $size * 1rem;
+                }
+
+                font-size: $size;
+            }
+        }
+    }
+}
